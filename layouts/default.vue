@@ -3,6 +3,9 @@
     Nuxt
 </template>
 
+<script>
+</script>
+
 <style lang="sass">
   .main
     width: 100%

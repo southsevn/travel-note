@@ -1,4 +1,7 @@
-export default {
+require('dotenv').config();
+
+// eslint-disable-next-line nuxt/no-cjs-in-config
+module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Travel&Note - ' + process.env.npm_package_description,
@@ -21,7 +24,8 @@ export default {
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-semantic-ui.js', ssr: true }
+    { src: '~/plugins/vue-semantic-ui.js', ssr: true },
+    { src: '~/plugins/vue-country-flag.js', ssr: true }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,13 +47,26 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:3004/api',
+    // CHANGE EVERY TIME ON BUILD
+    browserBaseURL: 'http://localhost:3004/api'
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en'
     }
+  },
+
+  serverMiddleware: [
+    { path: '/server', handler: '~/server/index.js' }
+  ],
+
+  server: {
+    host: process.env.HOST,
+    port: process.env.PORT
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

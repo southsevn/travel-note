@@ -1,0 +1,58 @@
+{
+  "trips": [
+    {
+      "id": "1",
+      "titleImage": "/images/trips/1.jpg",
+      "heading": "Красноярский край",
+      "country": "ru",
+      "dateFrom": "03/25/2018",
+      "dateTo": "04/15/2018"
+    },
+    {
+      "id": "2",
+      "titleImage": "/images/trips/2.jpg",
+      "heading": "Сахалин",
+      "country": "ru",
+      "dateFrom": "04/15/2018",
+      "dateTo": "04/25/2018"
+    },
+    {
+      "id": "3",
+      "titleImage": "/images/trips/3.jpg",
+      "heading": "Финнмарк",
+      "country": "no",
+      "dateFrom": "05/05/2017",
+      "dateTo": "06/05/2017"
+    },
+    {
+      "id": "4",
+      "titleImage": "/images/trips/4.jpg",
+      "heading": "Цусима",
+      "country": "jp",
+      "dateFrom": "06/10/2016",
+      "dateTo": "06/10/2016"
+    },
+    {
+      "id": "5",
+      "titleImage": "/images/trips/5.jpg",
+      "heading": "Токио",
+      "country": "jp",
+      "dateFrom": "29/09/2016",
+      "dateTo": "29/10/2016"
+    },
+    {
+      "id": "6",
+      "titleImage": "/images/trips/6.jpg",
+      "heading": "Сент-Хеленс",
+      "country": "us",
+      "dateFrom": "09/11/2015",
+      "dateTo": "1/12/2015"
+    }
+  ],
+  "users": [
+    {
+      "username": "love",
+      "password": "travel"
+    }
+  ]
+}

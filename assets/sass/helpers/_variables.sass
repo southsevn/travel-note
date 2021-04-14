@@ -1,0 +1,70 @@
+//Colors
+$white:              rgb(255, 255, 255)
+$lightgrey:          rgb(248, 248, 248)
+$disable:            rgb(166, 166, 166)
+$middlegrey:         rgb(81, 81, 81)
+$stronggrey:         rgb(46, 46, 46)
+$black:              rgb(26, 26, 26)
+$error:              rgb(248, 32, 2)
+$sale:               rgb(203, 53, 57)
+
+//Fonts
+$xs-mini-font-size: 8px
+$extra-mini-font-size: 10px
+$mini-font-size: 12px
+$default-font-size: 14px
+$middle-font-size: 18px
+
+$middle-heading-font-size: 28px
+$default-heading-font-size: 32px
+
+$mini-line-height: 16px
+$default-line-height: 18px
+$middle-line-height: 22px
+
+//Paddings
+$default-padding: 10px
+
+//Borders
+$default-border-width: 1px
+$default-border-radius: 2px
+$default-border: $default-border-width solid $black
+
+//Sizes
+$default-icon-width: 24px
+$default-icon-height: 24px
+
+//Transitions
+$default: .22s all
+
+//Breakpoints
+$xs: 340px
+$sm: 480px
+$md: 780px
+$ml: 1024px
+$lg: 1280px
+$xl: 1440px
+
+@mixin xs
+  @media (max-width: #{$xs})
+    @content
+
+@mixin sm
+  @media (max-width: #{$sm})
+    @content
+
+@mixin md
+  @media (max-width: #{$md})
+    @content
+
+@mixin ml
+  @media (max-width: #{$ml})
+    @content
+
+@mixin lg
+  @media (max-width: #{$lg})
+    @content
+
+@mixin xl
+  @media (max-width: #{$xl})
+    @content
