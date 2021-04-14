@@ -1,4 +1,6 @@
-# travel-note
+# Travel & Note
+
+![Travel](README-IMG.png)
 
 This application will help you plan your travels and watch history of your trips. 
 
@@ -20,3 +22,15 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+
+## Setup environment
+
+Create a `.env` file and past: 
+```
+HOST=localhost
+PORT=<frontend_server>
+DB_PORT=<backend_server>
+NODE_ENV=DEV
+SECRET=<your secret>
+```
+
