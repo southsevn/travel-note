@@ -93,3 +93,7 @@ sw.*
 
 /public/css/**/*
 /scripts/dist/**/*
+
+
+# Json-server
+db.json

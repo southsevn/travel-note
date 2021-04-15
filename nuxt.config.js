@@ -50,7 +50,8 @@ module.exports = {
   axios: {
     baseURL: 'http://localhost:3004/api',
     // CHANGE EVERY TIME ON BUILD
-    browserBaseURL: 'http://localhost:3004/api'
+    browserBaseURL: 'http://localhost:3004/api',
+    proxy: true
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

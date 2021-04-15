@@ -3,7 +3,7 @@ const jsonServer = require('json-server');
 const auth = require('json-server-auth');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({ noCors: true });
 const consola = require('consola');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -15,6 +15,8 @@ const app = express();
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js');
 config.dev = process.env.NODE_ENV !== 'production';
+
+server.db = router.db;
 
 async function start () {
   // Init Nuxt.js

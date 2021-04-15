@@ -6,14 +6,14 @@
       h1.login-page--header(is="sui-header") Login
       .login-page--form.ui.form
         sui-form-field
-          label Username
+          label E-mail
           sui-input(
             type='text'
-            placeholder='Username'
+            placeholder='E-mail'
             autocomplete='off'
             icon="user"
             icon-position="left"
-            v-model="userLogin"
+            v-model="userEmail"
             @input="hasCredsErrors = false"
             :loading="isLoaded"
           )
@@ -25,7 +25,7 @@
             autocomplete="off"
             icon="lock"
             icon-position="left"
-            v-model="userPswd"
+            v-model="userPassword"
             @input="hasCredsErrors = false"
             :loading="isLoaded"
           )
@@ -39,38 +39,47 @@
         sui-message-header Test creds
         sui-message-list
           sui-message-item
-            | Login: {{ testLogin }}
+            | Login: {{ testEmail }}
           sui-message-item
-            | Password: {{ testPswd }}
+            | Password: {{ testPassword }}
 </template>
 
 <script>
   import TNLogo from '@/components/shared/TNLogo';
+  import { mapActions, mapGetters } from 'vuex';
+
   export default {
     name: 'Login',
     components: { TNLogo },
+    computed: {
+      ...mapGetters('user', ['TOKEN'])
+    },
     methods: {
-      login() {
+      ...mapActions('user', ['signin']),
+      async login() {
         this.hasCredsErrors = false;
         this.isLoaded = true;
 
-        setTimeout(() => {
-          if (this.testLogin === this.userLogin && this.testPswd === this.userPswd) {
-            this.$router.push('/');
+        await this.signin({
+          email: this.userEmail,
+          password: this.userPassword
+        })
+          .then(() => {
             this.isLoaded = false;
-          } else {
+          })
+          .catch(err => {
+            console.log(err);
             this.isLoaded = false;
             this.hasCredsErrors = true;
-          }
-        }, 500);
+          });
       }
     },
     data() {
       return {
-        testLogin: 'love',
-        testPswd: 'travel',
-        userLogin: '',
-        userPswd: '',
+        testEmail: 'love@travel.com',
+        testPassword: 'lovetravel',
+        userEmail: '',
+        userPassword: '',
         errors: {
           userNotFound: 'This user not found. Or password wrong!'
         },

@@ -51,8 +51,21 @@
   ],
   "users": [
     {
-      "username": "love",
-      "password": "travel"
+      "email": "love@travel.com",
+      "password": "$2a$10$s8r7RN8hkZ9WGmeRLY5oze1VfUXqjD/xLTZ7L7ZeMqHSL6CLEhfsm",
+      "id": 1
+    },
+    {
+      "email": "love2@travel.com",
+      "password": "$2a$10$RLDJZXiT8t6TQmi4vU6JfOF4JmUVh.YdlTZOQLKajrJj5IsSIY7cq",
+      "id": 2
+    },
+    {
+      "email": "love3@travel.com",
+      "password": "$2a$10$zDEDrj22wjrJ.p0sQeaNVuYVWTylRWP4IHwuA5qPm0lY5xTZh1dKO",
+      "name": "Alex",
+      "secondName": "Konkov",
+      "id": 3
     }
   ]
 }
