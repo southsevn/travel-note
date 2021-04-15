@@ -19,12 +19,14 @@ export const mutations = {
 
 export const actions = {
   async signin({ commit }, { email, password }) {
-    console.log(email, password);
     await this.$axios.post('/signin', { email, password })
       .then((res) => {
         commit('SET_TOKEN', res.data.accessToken);
       })
       .catch(err => err);
+  },
+  async logout() {
+    this.$auth.logout();
   }
 };
 

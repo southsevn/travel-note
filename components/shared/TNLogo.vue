@@ -1,8 +1,8 @@
 <template lang="pug">
-  .tn-logo
-    sui-image(v-if="!text" :size="size" :src="'./logo-main.svg'" :title="'Travel & Note'")
+  nuxt-link.tn-logo(:to="'/'")
+    sui-image(v-if="!text" :size="size" :src="'/logo-main.svg'" :title="'Travel & Note'")
     h2(v-else is="sui-header")
-      sui-image.text-logo-image(:src="'./logo-main.svg'" :title="'Travel & Note'" circular)
+      sui-image.text-logo-image(:src="'/logo-main.svg'" :title="'Travel & Note'" circular)
       | Travel & Note
 </template>
 

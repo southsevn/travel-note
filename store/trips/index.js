@@ -20,14 +20,17 @@ export const mutations = {
 export const actions = {
   async getTrips({ commit }) {
     await this.$axios.get('/trips').then((res) => {
-      console.log(res.data);
       commit('SET_TRIPS', res.data);
     });
   },
   async getTripById({ commit }, id) {
-    await this.$axios.get(`/trips/${id}`).then((res) => {
-      commit('SET_ACTIVE_TRIP', res.data);
-    });
+    await this.$axios.get(`/trips/${id}`)
+      .then((res) => {
+        commit('SET_ACTIVE_TRIP', res.data);
+      });
+  },
+  async removeTripById(state, id) {
+    await this.$axios.delete(`/trips/${id}`);
   }
 };
 

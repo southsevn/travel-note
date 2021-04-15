@@ -1,25 +1,31 @@
 <template lang="pug">
+  // Only for the view
   sui-card.trip-card.fluid
     nuxt-link(:to="`/trips/${trip.id}`")
       sui-image(:src="trip.titleImage")
     sui-card-content
       sui-card-header.fluid.trip-cart--heading
         a {{ trip.heading }}
-        country-flag(:country="trip.country" size="normal" rounded)
+        sui-flag(:name="trip.country")
       sui-card-meta.trip-cart--date
-        sui-icon(name="calendar alternate")
-        a {{ trip.dateFrom | dateFilter }}
-        | -
-        a {{ trip.dateTo | dateFilter }}
+        TNTripDate(:from="trip.dateFrom" :to="trip.dateTo")
+      sui-card-description {{ trip.shortDescription }}
+      TNSocialActivity
 </template>
 
 <script>
+  import TNTripDate from '@/components/shared/TNTripDate';
+  import TNSocialActivity from '@/components/shared/TNSocialActivity';
   import { dateFilter } from '@/filters';
 
   export default {
     name: 'TNTripCard',
     filters: {
       dateFilter
+    },
+    components: {
+      TNTripDate,
+      TNSocialActivity
     },
     props: {
       trip: {
@@ -36,4 +42,7 @@
 
     .flag
       float: right
+
+    .social-activity
+      margin-top: $default-padding * 2
 </style>
