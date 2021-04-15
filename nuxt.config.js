@@ -43,7 +43,8 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/auth',
     '@nuxtjs/style-resources',
-    'semantic-ui-vue/nuxt'
+    'semantic-ui-vue/nuxt',
+    'nuxt-leaflet'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

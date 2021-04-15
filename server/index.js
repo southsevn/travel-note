@@ -32,6 +32,11 @@ async function start () {
     await nuxt.ready();
   }
 
+  server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
   server.use(auth);
   server.set('Secret', process.env.SECRET);
   server.use('/api', middlewares, router);
