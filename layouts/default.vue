@@ -8,7 +8,7 @@
 
 <style lang="sass">
   body
-    background-color: #8d7872
+    background-color: #969e7b
 
   .main
     width: 100%

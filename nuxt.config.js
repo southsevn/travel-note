@@ -15,7 +15,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#874c73', height: '3px' },
+  loading: { color: '#8fca75', height: '3px' },
   // Global CSS: https://go.nuxtjs.dev/config-css
   styleResources: {
     sass: [
@@ -24,7 +24,8 @@ module.exports = {
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/vue-semantic-ui.js', ssr: true }
+    { src: '~/plugins/vue-semantic-ui.js', ssr: true },
+    { src: '~/plugins/nuxt-country-select.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -59,6 +60,37 @@ module.exports = {
     manifest: {
       lang: 'en'
     }
+  },
+
+  auth: {
+    localStorage: false,
+    cookie: {
+      options: {
+        expires: 1
+      }
+    },
+    strategies: {
+      local: {
+        token: {
+          property: 'accessToken'
+        },
+        endpoints: {
+          login: { url: '/signin', method: 'post', propertyName: 'accessToken' },
+          logout: false,
+          user: false
+        },
+        redirect: {
+          login: '/signin',
+          logout: '/login',
+          home: '/'
+        }
+      }
+    },
+    tokenRequired: true,
+    tokenType: 'bearer',
+    tokenName: 'Authorization',
+    globalToken: true,
+    autoFetchUser: false
   },
 
   serverMiddleware: [

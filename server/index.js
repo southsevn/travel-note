@@ -6,6 +6,7 @@ const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults({ noCors: true });
 const consola = require('consola');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const helmet = require('helmet');
 const { Nuxt, Builder } = require('nuxt');
 require('dotenv').config();
@@ -32,9 +33,12 @@ async function start () {
     await nuxt.ready();
   }
 
-  server.use((req, res, next) => {
+  server.use(cors());
+
+  server.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
   });
 
