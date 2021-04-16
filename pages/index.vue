@@ -4,16 +4,17 @@
     sui-segment.main-page(v-if="TRIPS" attached)
       sui-grid(:columns="1")
         sui-grid-column(v-for="(trip, idx) in TRIPS" :key="idx")
-          TNTripCard(:trip="trip")
+          TripCard(:trip="trip")
 </template>
 
 <script>
   import Header from '@/components/Header/Header';
-  import TNTripCard from '@/components/shared/TNTripCard';
+  import TripCard from '@/components/TripCard/TripCard';
   import { mapActions, mapGetters } from 'vuex';
 
   export default {
-    components: { TNTripCard, Header },
+    components: { TripCard, Header },
+    middleware: 'auth',
     data() {
       return {
         titlePage: 'My trips'

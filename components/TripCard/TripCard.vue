@@ -10,22 +10,22 @@
       sui-card-meta.trip-cart--date
         TNTripDate(:from="trip.dateFrom" :to="trip.dateTo")
       sui-card-description {{ trip.shortDescription }}
-      TNSocialActivity
+      SocialActivity
 </template>
 
 <script>
   import TNTripDate from '@/components/shared/TNTripDate';
-  import TNSocialActivity from '@/components/shared/TNSocialActivity';
+  import SocialActivity from '@/components/SocialActivity/SocialActivity';
   import { dateFilter } from '@/filters';
 
   export default {
-    name: 'TNTripCard',
+    name: 'TripCard',
     filters: {
       dateFilter
     },
     components: {
       TNTripDate,
-      TNSocialActivity
+      SocialActivity
     },
     props: {
       trip: {

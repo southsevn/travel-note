@@ -23,7 +23,11 @@
       }
     },
     methods: {
-      ...mapActions('user', ['logout'])
+      ...mapActions('user', ['logout']),
+      logout() {
+        this.$auth.logout();
+        this.router.push('/');
+      }
     }
   };
 </script>

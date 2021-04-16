@@ -1,9 +1,8 @@
 <template lang="pug">
   sui-container.login-page
     sui-segment.login-page--conteiner
-      TNLogo(text)
-      sui-image(:src="'/hero-title.jpg'" size="huge")
-      h1.login-page--header(is="sui-header") Login
+      sui-image(:src="'/hero-image.jpg'" size="huge")
+      h1.login-page--header(is="sui-header") A journey of a thousand miles begins with a single step
       .login-page--form.ui.form
         sui-form-field
           label E-mail
@@ -36,7 +35,7 @@
       sui-divider(horizontal) Or
       sui-button(color="green" icon="sign-in" content="Sign Up" label-position="right" @click="$router.push('/register')")
       sui-message(visible).login-page--hint
-        sui-message-header Test creds
+        sui-message-header Test credentials
         sui-message-list
           sui-message-item
             | Login: {{ testEmail }}
@@ -46,25 +45,23 @@
 
 <script>
   import TNLogo from '@/components/shared/TNLogo';
-  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     name: 'Login',
     components: { TNLogo },
-    computed: {
-      ...mapGetters('user', ['TOKEN'])
-    },
     methods: {
-      ...mapActions('user', ['signin']),
       async login() {
         this.hasCredsErrors = false;
         this.isLoaded = true;
 
-        await this.signin({
-          email: this.userEmail,
-          password: this.userPassword
+        await this.$auth.loginWith('local', {
+          data: {
+            email: this.userEmail,
+            password: this.userPassword
+          }
         })
-          .then(() => {
+          .then((red) => {
+            console.log(red);
             this.isLoaded = false;
           })
           .catch(err => {

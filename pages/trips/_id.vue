@@ -7,7 +7,7 @@
         sui-button-or
         sui-button(@click="deleteTrip" negative) Delete
     sui-image(:src="ACTIVE_TRIP.titleImage")
-    TNSocialActivity
+    SocialActivity
     TNTripDate(:from="ACTIVE_TRIP.dateFrom" :to="ACTIVE_TRIP.dateTo")
     h4(is="sui-header" color="grey") {{ ACTIVE_TRIP.shortDescription }}
     p.trip-page--note {{ ACTIVE_TRIP.note }}
@@ -25,15 +25,16 @@
   import TNTripDate from '@/components/shared/TNTripDate';
   import TNBaseModal from '@/components/shared/TNBaseModal';
   import TNTripHeader from '@/components/shared/TNTripHeader';
-  import TNSocialActivity from '@/components/shared/TNSocialActivity';
+  import SocialActivity from '@/components/SocialActivity/SocialActivity';
   import TNTripComments from '@/components/shared/TNTripComments';
   import { activeTrip } from '@/mixins/activeTrip';
   import { mapActions } from 'vuex';
 
   export default {
     name: 'Trip',
+    middleware: 'auth',
     components: {
-      TNSocialActivity,
+      SocialActivity,
       TNTripHeader,
       TNTripDate,
       TNBaseModal,

@@ -27,6 +27,7 @@
     components: {
       Header
     },
+    middleware: 'auth',
     data() {
       return {
         pageTitle: 'Map',
