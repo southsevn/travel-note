@@ -40,27 +40,8 @@ export const actions = {
       ...trip
     });
   },
-  // eslint-disable-next-line no-shadow
-  editExistTrip({ getters, commit }, { id, heading, titleImage, shortDescription, note }) {
-    let newTrip = getters.TRIPS.find(trip => trip.id === id);
-
-    newTrip = JSON.parse(JSON.stringify(newTrip));
-
-    newTrip = {
-      ...newTrip,
-      heading: heading || newTrip.heading,
-      titleImage: titleImage || newTrip.titleImage,
-      shortDescription: shortDescription || newTrip.shortDescription,
-      note: note || newTrip.note
-    };
-
-    commit('UPDATE_TRIP', {
-      id: newTrip.id,
-      trip: newTrip
-    });
-  },
-  updateExistTrip({ commit }, newTrip) {
-    this.$axios.put(`/trips/${newTrip.id}`, {
+  async updateExistTrip({ commit }, newTrip) {
+    await this.$axios.put(`/trips/${newTrip.id}`, {
       id: newTrip.id,
       heading: newTrip.heading,
       titleImage: newTrip.titleImage,
@@ -80,6 +61,25 @@ export const actions = {
   },
   async removeTripById(state, id) {
     await this.$axios.delete(`/trips/${id}`);
+  },
+  // eslint-disable-next-line no-shadow
+  editExistTrip({ getters, commit }, { id, heading, titleImage, shortDescription, note }) {
+    let newTrip = getters.TRIPS.find(trip => trip.id === id);
+
+    newTrip = JSON.parse(JSON.stringify(newTrip));
+
+    newTrip = {
+      ...newTrip,
+      heading: heading || newTrip.heading,
+      titleImage: titleImage || newTrip.titleImage,
+      shortDescription: shortDescription || newTrip.shortDescription,
+      note: note || newTrip.note
+    };
+
+    commit('UPDATE_TRIP', {
+      id: newTrip.id,
+      trip: newTrip
+    });
   }
 };
 

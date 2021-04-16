@@ -14,7 +14,7 @@
     TNTripComments
     TNBaseModal(
       @onCancel="isShowModal = false"
-      @onDeletet="removeTripWrapper"
+      @onDelete="removeTripWrapper"
       :active="isShowModal"
       :header="modal.header"
       :description="modal.description"

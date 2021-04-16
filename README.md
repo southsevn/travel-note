@@ -1,6 +1,6 @@
 # Travel & Note
 
-![Travel](README-IMG.png)
+![Travel](README-IMG.PNG)
 
 This application will help you plan your travels and watch history of your trips. 
 
