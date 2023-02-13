@@ -47,6 +47,8 @@ module.exports = {
     'nuxt-leaflet'
   ],
 
+  telemetry: false,
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://localhost:3004/api',
