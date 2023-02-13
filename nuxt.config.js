@@ -51,9 +51,9 @@ module.exports = {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://localhost:3004/api',
+    baseURL: 'https://sandbox-test.billups.com//api',
     // CHANGE EVERY TIME ON BUILD
-    browserBaseURL: 'http://localhost:3004/api',
+    browserBaseURL: 'https://sandbox-test.billups.com/api',
     proxy: true
   },
 
